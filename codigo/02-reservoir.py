@@ -1,5 +1,5 @@
 """
-02_reservoir.py
+02-reservoir.py
 ---------------
 Nucleo del trabajo. Construye el reservorio, lo entrena sobre la serie de
 Lorenz y lo hace predecir en lazo cerrado. Genera las tres figuras centrales:
@@ -9,7 +9,7 @@ Lorenz y lo hace predecir en lazo cerrado. Genera las tres figuras centrales:
   3. Mapa de retorno de Poincare de los maximos de z (reproduce la Fig. 6).
 
 Uso:
-    python 02_reservoir.py
+    python codigo/02-reservoir.py
 """
 
 import numpy as np
@@ -58,8 +58,9 @@ def main():
     ax.legend()
     ax.grid(True, ls=":")
     fig.tight_layout()
-    fig.savefig("figuras/prediccion_corto_plazo.png", dpi=150)
-    print("Figura guardada en figuras/prediccion_corto_plazo.png")
+    ruta = comun.ruta_figura("prediccion_corto_plazo.png")
+    fig.savefig(ruta, dpi=150)
+    print(f"Figura guardada en {ruta}")
 
     # =================================================================
     # Figura 2: atractor real vs reconstruido
@@ -75,8 +76,9 @@ def main():
     ax2.set_title("Atractor reconstruido por el reservorio")
     ax2.set_xlabel("x"); ax2.set_ylabel("y"); ax2.set_zlabel("z")
     fig.tight_layout()
-    fig.savefig("figuras/atractor_reconstruido.png", dpi=150)
-    print("Figura guardada en figuras/atractor_reconstruido.png")
+    ruta = comun.ruta_figura("atractor_reconstruido.png")
+    fig.savefig(ruta, dpi=150)
+    print(f"Figura guardada en {ruta}")
 
     # =================================================================
     # Figura 3: mapa de retorno de Poincare de los maximos de z
@@ -94,8 +96,9 @@ def main():
     ax.legend()
     ax.grid(True, ls=":")
     fig.tight_layout()
-    fig.savefig("figuras/mapa_poincare.png", dpi=150)
-    print("Figura guardada en figuras/mapa_poincare.png")
+    ruta = comun.ruta_figura("mapa_poincare.png")
+    fig.savefig(ruta, dpi=150)
+    print(f"Figura guardada en {ruta}")
 
 
 if __name__ == "__main__":

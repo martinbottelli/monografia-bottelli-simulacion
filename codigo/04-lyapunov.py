@@ -1,5 +1,5 @@
 """
-04_lyapunov.py
+04-lyapunov.py
 --------------
 Calcula el mayor exponente de Lyapunov del reservorio de prediccion mediante
 el metodo de Benettin (evolucion de un vector tangente con el jacobiano del
@@ -13,7 +13,7 @@ Se calcula para varios valores de la fuerza de entrada, para observar la
 relacion entre la calidad de la reconstruccion y el exponente obtenido.
 
 Uso:
-    python 04_lyapunov.py
+    python codigo/04-lyapunov.py
 """
 
 import numpy as np
@@ -55,8 +55,9 @@ def main():
     ax.legend()
     ax.grid(True, which="both", ls=":")
     fig.tight_layout()
-    fig.savefig("figuras/lyapunov.png", dpi=150)
-    print("Figura guardada en figuras/lyapunov.png")
+    ruta = comun.ruta_figura("lyapunov.png")
+    fig.savefig(ruta, dpi=150)
+    print(f"Figura guardada en {ruta}")
 
 
 if __name__ == "__main__":

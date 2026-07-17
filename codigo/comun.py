@@ -4,6 +4,7 @@ comun.py
 Funciones compartidas por todos los scripts del trabajo.
 
 Contiene:
+  - La resolucion de la ruta de la carpeta de figuras.
   - La integracion del sistema de Lorenz.
   - La preparacion de los datos (normalizacion y particion).
   - La construccion, escucha (listening) y entrenamiento del reservorio.
@@ -16,8 +17,25 @@ software. Los datos se normalizan (media 0, desvio 1) para que el metodo sea
 numericamente robusto.
 """
 
+from pathlib import Path
+
 import numpy as np
 from scipy.integrate import solve_ivp
+
+
+# =====================================================================
+#  Rutas
+# =====================================================================
+# La ruta se resuelve a partir de la ubicacion de este archivo y no del
+# directorio de trabajo, para que los scripts se puedan ejecutar desde
+# cualquier lado.
+DIR_FIGURAS = Path(__file__).resolve().parent.parent / "figuras"
+
+
+def ruta_figura(nombre):
+    """Ruta absoluta de una figura, creando la carpeta si hace falta."""
+    DIR_FIGURAS.mkdir(parents=True, exist_ok=True)
+    return DIR_FIGURAS / nombre
 
 
 # =====================================================================

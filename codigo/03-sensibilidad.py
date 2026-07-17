@@ -1,5 +1,5 @@
 """
-03_sensibilidad.py
+03-sensibilidad.py
 ------------------
 Analisis de sensibilidad del reservorio. Estudia como afectan a la calidad de
 la prediccion dos parametros clave:
@@ -11,7 +11,7 @@ Para cada valor se mide el tiempo de prediccion valido, promediado sobre
 varios reservorios aleatorios distintos.
 
 Uso:
-    python 03_sensibilidad.py
+    python codigo/03-sensibilidad.py
 
 Nota: este script entrena muchos reservorios, puede tardar un par de minutos.
 """
@@ -62,8 +62,9 @@ def main():
     ax.set_title("Sensibilidad a la fuerza de entrada")
     ax.grid(True, which="both", ls=":")
     fig.tight_layout()
-    fig.savefig("figuras/sensibilidad_sigma.png", dpi=150)
-    print("Figura guardada en figuras/sensibilidad_sigma.png")
+    ruta = comun.ruta_figura("sensibilidad_sigma.png")
+    fig.savefig(ruta, dpi=150)
+    print(f"Figura guardada en {ruta}")
 
     # =================================================================
     # Efecto de la regularizacion
@@ -87,8 +88,9 @@ def main():
     ax.set_title("Efecto de la regularizacion")
     ax.grid(True, which="both", ls=":")
     fig.tight_layout()
-    fig.savefig("figuras/sensibilidad_beta.png", dpi=150)
-    print("Figura guardada en figuras/sensibilidad_beta.png")
+    ruta = comun.ruta_figura("sensibilidad_beta.png")
+    fig.savefig(ruta, dpi=150)
+    print(f"Figura guardada en {ruta}")
 
 
 if __name__ == "__main__":
